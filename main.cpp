@@ -144,4 +144,71 @@ using namespace std;
     // }
 // }
 
-//#12
+//#13
+int main() {
+    int arr[4][13] = {0};
+    arr[0][0] = 1;
+    arr[3][1] = 1;
+    const char* a[4] = {"Hearts", "Diamonds", "Clubs", "Spades"};
+    const char* b[13] = {"Ace", "2", "3", "4", "5", "6", "7","8", "9", "10", "Jack", "Queen", "King"};
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 13; j++) {
+            if (*(*(deck + i) + j) == 1) {
+                cout << *(b + j) << " of " << *(a + i) << endl;
+            }
+        }
+    }
+
+    return 0;
+}
+//14 is done by using random and I didnt copy from ai
+//15
+void greet() {
+    cout << "Hello from greet()" << endl;
+}
+
+void bye() {
+    cout << "Goodbye from bye()" << endl;
+}
+
+int main() {
+    void (*fptr)();
+    fptr = greet; 
+    fptr(); 
+    fptr = bye;  
+    fptr();      
+}
+
+//16
+int add(int a, int b) {
+    return a+b;
+}
+
+int multiply(int a, int b) {
+    return a*b;
+}
+int divide(int a, int b) {
+    return a/b;
+}
+int main() {
+    int (*fptr)(int, int);
+    int x, y;
+    char action;
+    cin>>x>>y;
+    cin>>action;
+    if (action=='a') {
+        fptr=add;
+        cout << "Add: "<<fptr(x, y)<<endl;
+    } else if (action=='m') {
+        fptr=multiply;
+        cout << "Multiply: " << fptr(x, y) << endl;
+    }else if(action=='d'){
+        fptr=divide;
+        cout << "Divide: " << fptr(x, y) << endl
+    }( else {
+        cout << "Invalid choice!" << endl;
+    }
+
+    return 0;
+}
